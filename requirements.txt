@@ -1,4 +1,4 @@
-requests
+requests==2.31.0
 xml.etree.ElementTree
-bs4
+bs4==4.12.3
 os
