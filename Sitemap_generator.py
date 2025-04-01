@@ -1,8 +1,8 @@
 import os
 import xml.etree.ElementTree as ET
 
-def generate_sitemap(directory):
-    base_url = input()
+def generate_sitemap(directory, url_input):
+    base_url = url_input
     urlset = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
 
     for root, _, files in os.walk(directory):
@@ -23,7 +23,8 @@ def generate_sitemap(directory):
     print("Sitemap generated as sitemap.xml")
 
 directory_path = "/home/gpsr/webserver/cgidocs"
-generate_sitemap(directory_path)
+url_input = input()
+generate_sitemap(directory_path, url_input)
 
 def read_sitemap(file_path):
     try:

@@ -7,7 +7,7 @@ log_file = open("output.txt", "a")
 def log_and_print(message):
     log_file.write(message + "\n")
 
-website_url = "https://webs.iiitd.edu.in/"
+website_url = input()
 
 def fetch_sitemap(sitemap_path):
     try:
