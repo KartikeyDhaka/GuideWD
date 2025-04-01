@@ -5,9 +5,33 @@ Sitemaps are crucial in enhancing website visibility by helping search engines i
 <h2>Instructions:</h2>
 
 **At Server End:**
-1) Firstly run the sitemap_generator.py file using command python sitemap_generator.py on terminal and give the input as urls for example: "http://webs.iiitd.edu.in/raghava/toxinpred3/" and it will walks through the directory (/home/gpsr/webserver/cgidocs) using os.walk() and identifies .html and .php files. Afterwards it will generates a structured XML sitemap using the XML sitemap schema (http://www.sitemaps.org/schemas/sitemap/0.9) and store the sitemap file output to sitemap_toxinpred3.xml.
+1) Firstly run the `sitemap_generator.py` file using the command:
 
-2) Secondly run checker.py file using command python sitemap_generator.py on terminal and give the input as before: "http://webs.iiitd.edu.in/raghava/toxinpred3/" this file reads the generated sitemap using ET.parse(), extracts and prints all URLs within the <loc> tags using root.findall() and handles exceptions with appropriate error messages.
+   ```bash
+   python sitemap_generator.py
+   ```
+
+   Provide the input as URLs, for example:
+
+   ```bash
+   http://webs.iiitd.edu.in/raghava/toxinpred3/
+   ```
+
+   The script will walk through the directory `/home/gpsr/webserver/cgidocs` using `os.walk()` and identify `.html` and `.php` files. It will then generate a structured XML sitemap using the XML sitemap schema (http://www.sitemaps.org/schemas/sitemap/0.9) and store the sitemap file as `sitemap_toxinpred3.xml`.
+
+2) Secondly, run the `checker.py` file using the following command:
+
+   ```bash
+   python checker.py
+   ```
+
+   Provide the same input URL:
+
+   ```bash
+   http://webs.iiitd.edu.in/raghava/toxinpred3/
+   ```
+
+   This file reads the generated sitemap using `ET.parse()`, extracts and prints all URLs within the `<loc>` tags using `root.findall()`, and handles exceptions with appropriate error messages.
 
 **At Local Machine End:**
 1) In the file Sitemap_Generator_and_Comparision.ipynb, the process begins by fetching HTML content from a specified URL using the requests library. After downloading the HTML, the script proceeds with tag identification, where BeautifulSoup is used to parse and classify HTML tags, identifying standard, deprecated, and custom/private tags. Next, the script performs HTML cleaning, removing any private tags to ensure the HTML is free of unnecessary elements. Following this, sitemap generation takes place, where all valid URLs from the website are extracted and compiled into an XML sitemap. The sitemaps are then compared using difflib to detect any structural differences between the two sitemaps or web pages. Finally, sitemap accuracy calculation is performed by measuring the coverage of the generated sitemap, evaluating the intersection between the generated URLs and the indexed URLs.
