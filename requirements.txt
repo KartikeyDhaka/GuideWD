@@ -1,4 +1,4 @@
 requests==2.31.0
-xml.etree.ElementTree
+elementpath==4.8.0
 bs4==4.12.3
 os
