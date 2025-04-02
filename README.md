@@ -34,14 +34,38 @@ Sitemaps are crucial in enhancing website visibility by helping search engines i
    This file reads the generated sitemap using `ET.parse()`, extracts and prints all URLs within the `<loc>` tags using `root.findall()`, and handles exceptions with appropriate error messages.
 
 **At Local Machine End:**
-- **Fetching HTML Content:** The process begins in `Sitemap_Generator_and_Comparision.ipynb` by retrieving HTML content from a specified URL using the `requests` library.  
-- **Tag Identification:** `BeautifulSoup` is used to parse and classify HTML tags into standard, deprecated, and custom/private categories.  
-- **HTML Cleaning:** Private tags are removed to ensure a clean HTML structure without unnecessary elements.  
-- **Sitemap Generation:** Extracts all valid URLs from the website and compiles them into an XML sitemap.  
-- **Sitemap Comparison:** Uses `difflib` to detect structural differences between the generated sitemaps or web pages.  
-- **Sitemap Accuracy Calculation:** Evaluates sitemap coverage by measuring the intersection between generated URLs and indexed URLs.
 
-2) In the file **Sitemap_Generator_Threats_and_Security.ipynb**, the script performs comprehensive **security analysis** on the HTML content. It starts by **extracting and parsing** the HTML using the `requests` library to fetch the content from the given URL, with `BeautifulSoup` used for parsing the HTML through both `lxml` and `html.parser`. To simulate browser behavior, headers with a user-agent are included in the requests, and appropriate error messages are displayed in case of failed requests. The script then moves on to **private tag detection and HTML cleaning**, where custom or non-standard tags are identified by comparing them against a set of standard tags, and deprecated tags (such as `<font>`, `<marquee>`, and `<center>`) are flagged. Private tags are removed using regex patterns, and a clean version of the HTML is regenerated. The differences between the original and cleaned HTML are displayed using the `difflib.unified_diff` method. For **SEO analysis**, the script checks for key components such as the presence of a `<title>` tag (limited to 60 characters), the existence and length of meta descriptions, the presence of `<h1>` tags, the availability of a `robots.txt` file, missing alt attributes in `<img>` tags, and mobile responsiveness via the viewport meta tag. Lastly, for **threat detection**, the script scans the HTML for potential malicious patterns using regex (such as `eval()` and `document.write()`), flags deprecated HTML tags as security risks, and checks for outdated versions of commonly used libraries like jQuery and Bootstrap.
+- *Fetching HTML Content:* The process begins in `Sitemap_Generator_and_Comparision.ipynb` by retrieving HTML content from a specified URL using the `requests` library.  
+- *Tag Identification:* `BeautifulSoup` is used to parse and classify HTML tags into standard, deprecated, and custom/private categories.  
+- *HTML Cleaning:* Private tags are removed to ensure a clean HTML structure without unnecessary elements.  
+- *Sitemap Generation:* Extracts all valid URLs from the website and compiles them into an XML sitemap.  
+- *Sitemap Comparison:* Uses `difflib` to detect structural differences between the generated sitemaps or web pages.  
+- *Sitemap Accuracy Calculation:* Evaluates sitemap coverage by measuring the intersection between generated URLs and indexed URLs.  
+
+## At Local Machine End: Security Analysis
+
+- *Fetching and Parsing HTML:*  
+  - The process begins in `Sitemap_Generator_Threats_and_Security.ipynb`, where HTML content is fetched using the `requests` library.  
+  - `BeautifulSoup` is used to parse HTML via both `lxml` and `html.parser`.  
+  - To simulate browser behavior, user-agent headers are included, and appropriate error messages are displayed for failed requests.  
+
+- *Private Tag Detection & HTML Cleaning:*  
+  - Custom or non-standard tags are identified by comparing them with a predefined set of standard tags.  
+  - Deprecated tags such as `<font>`, `<marquee>`, and `<center>` are flagged.  
+  - Private tags are removed using regex, and a clean version of the HTML is generated.  
+  - Differences between original and cleaned HTML are displayed using `difflib.unified_diff`.  
+
+- *SEO Analysis:*  
+  - Checks for the presence of a `<title>` tag (ensuring it is within 60 characters).  
+  - Evaluates the existence and length of meta descriptions.  
+  - Confirms the presence of `<h1>` tags and a `robots.txt` file.  
+  - Detects missing `alt` attributes in `<img>` tags.  
+  - Verifies mobile responsiveness through the viewport meta tag.  
+
+- *Threat Detection:*  
+  - Scans for potential malicious patterns in the HTML using regex (e.g., `eval()`, `document.write()`).  
+  - Flags deprecated HTML tags that may pose security risks.  
+  - Checks for outdated versions of commonly used libraries like jQuery and Bootstrap.  
 
 <h2>Work done:</h2>
 
