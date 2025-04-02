@@ -5,6 +5,7 @@ Sitemaps are crucial in enhancing website visibility by helping search engines i
 <h2>Instructions:</h2>
 
 **At Server End:**
+
 1) Firstly run the `sitemap_generator.py` file using the command:
 
    ```bash
@@ -33,7 +34,7 @@ Sitemaps are crucial in enhancing website visibility by helping search engines i
 
    This file reads the generated sitemap using `ET.parse()`, extracts and prints all URLs within the `<loc>` tags using `root.findall()`, and handles exceptions with appropriate error messages.
 
-**At Local Machine End:**
+## At Local Machine End:
 
 - *Fetching HTML Content:* The process begins in `Sitemap_Generator_and_Comparision.ipynb` by retrieving HTML content from a specified URL using the `requests` library.  
 - *Tag Identification:* `BeautifulSoup` is used to parse and classify HTML tags into standard, deprecated, and custom/private categories.  
