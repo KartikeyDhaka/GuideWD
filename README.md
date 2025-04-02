@@ -66,7 +66,14 @@ Sitemaps are crucial in enhancing website visibility by helping search engines i
 - *Threat Detection:*  
   - Scans for potential malicious patterns in the HTML using regex (e.g., `eval()`, `document.write()`).  
   - Flags deprecated HTML tags that may pose security risks.  
-  - Checks for outdated versions of commonly used libraries like jQuery and Bootstrap.  
+  - Checks for outdated versions of commonly used libraries like jQuery and Bootstrap.
+
+## Installation
+   ```bash
+git clone https://github.com/your-username/GuideWD.git
+cd GuideWD
+pip install -r requirements.txt
+   ```
 
 <h2>Work done:</h2>
 
