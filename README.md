@@ -6,33 +6,53 @@ Sitemaps are crucial in enhancing website visibility by helping search engines i
 
 **At Server End:**
 
-1) Firstly run the `sitemap_generator.py` file using the command:
+<h3>Description:</h3>
+GuideWD is a Python utility that generates a sitemap.xml from all .html and .php files within a web directory, compares it against a live website's indexed pages, and outputs a report of discrepancies. It is helpful for developers and web admins to ensure consistency between their sitemap and actual site structure.
+
+<h3>How to Run:</h3>
+
+1) Firstly run the `sitemap_generator_final1.py` file using the command:
 
    ```bash
-   python sitemap_generator.py
+   python sitemap_generator_final1.py.py
    ```
 
    Provide the input as URLs, for example:
 
    ```bash
-   http://webs.iiitd.edu.in/raghava/toxinpred3/
+   http://webs.iiitd.edu.in/raghava/clbtope/
    ```
 
-   The script will walk through the directory `/home/gpsr/webserver/cgidocs` using `os.walk()` and identify `.html` and `.php` files. It will then generate a structured XML sitemap using the XML sitemap schema (http://www.sitemaps.org/schemas/sitemap/0.9) and store the sitemap file as `sitemap_toxinpred3.xml`.
+2) Options:
 
-2) Secondly, run the `checker.py` file using the following command:
+h – Show help message describing available options.
 
-   ```bash
-   python checker.py
-   ```
+i – Generate sitemap.xml from the local directory /home/gpsr/webserver/cgidocs using the base URL you input at the beginning.
 
-   Provide the same input URL:
+r – Reads and displays the contents of the generated sitemap.xml.
 
-   ```bash
-   http://webs.iiitd.edu.in/raghava/toxinpred3/
-   ```
+o – Compares the URLs in sitemap.xml with the actual URLs found on the live website:
+'''Lists URLs present in the sitemap but missing from the site.
+Lists URLs present on the site but not included in the sitemap.
+Saves the report in output.txt.'''
 
-   This file reads the generated sitemap using `ET.parse()`, extracts and prints all URLs within the `<loc>` tags using `root.findall()`, and handles exceptions with appropriate error messages.
+q – Exit the program.
+
+   The script will walk through the directory `/home/gpsr/webserver/cgidocs` using `os.walk()` and identify `.html` and `.php` files. It will then generate a structured XML sitemap using the XML sitemap schema (http://www.sitemaps.org/schemas/sitemap/0.9) and store the sitemap file as `sitemap.xml` and `output.txt` will contain the comparison report of sitemap vs website URLs.
+   
+3) Example Flow:
+
+Launch script.
+
+Input your website’s base URL.
+
+Press i to generate the sitemap.
+
+Press r to review it.
+
+Press o to compare with the website and generate the output log.
+
+Press q to quit the from the running code
 
 ## At Local Machine End:
 
